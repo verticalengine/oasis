@@ -7,6 +7,10 @@
     "live": {
       "address": "0x14fbca95be7e99c15cc2996c6c9d841e54b79425",
       "blockNumber": 4751582
+    },
+    "ropsten": {
+      "address": "0x9a5788a63eac6f2bffb1f5bb8a412dd721b90642",
+      "blockNumber": 2326549
     }
   },
   "tokens": {
@@ -53,6 +57,10 @@
       "GUP": "0xf7b098298f7c69fc14610bf71d5e02c60792894c",
       "BAT": "0x0d8775f648430679a709e98d2b0cb6250d2887ef",
       "NMR": "0x1776e1f26f98b1a5df9cd347953a26dd3cb46671"
+    },
+    "ropsten": {
+      "W-ETH": "0xb0443986c9b33a5e3602217ac0e3fb7a4d44ae4f",
+      "HC": "0x9c4ca2d07b4818141a8c0d9a829009ae9a7f4cfe"
     }
   }
 }

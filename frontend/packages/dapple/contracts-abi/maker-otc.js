@@ -17,6 +17,12 @@ Dapple['maker-otc'] = (function builder() {
         'type': 'MatchingMarket',
       },
     },
+    'ropsten': {
+      'otc': {
+        'value': '',
+        'type': 'MatchingMarket',
+      },
+    },
     'kovan': {
       'otc': {
         'value': '',

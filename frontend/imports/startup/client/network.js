@@ -168,8 +168,8 @@ function initNetwork(newNetwork) {
   Dapple.init(newNetwork);
   const market = Dapple['maker-otc'].environments.kovan.otc;
   checkAccounts().then(async (account) => {
-    await checkIfUserHasOldMKR(account);
-    checkIfUserHasBalanceInOldWrapper(account);
+    // await checkIfUserHasOldMKR(account);
+    // checkIfUserHasBalanceInOldWrapper(account);
   });
   const isMatchingEnabled = checkIfOrderMatchingEnabled(market.type);
   const isBuyEnabled = checkIfBuyEnabled(market.type);
@@ -230,6 +230,10 @@ function checkNetwork() {
                 case '1':
                   network = 'main';
                   Session.set('AVGBlocksPerDay', 5760);
+                  break;
+                case '3':
+                  network = 'ropsten';
+                  Session.set('AVGBlocksPerDay', 6150);
                   break;
                 case '42':
                   network = 'kovan';

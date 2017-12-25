@@ -3,6 +3,7 @@ const ENVs = {
   'test': 'kovan',
   'main': 'live',
   'private': 'default',
+  'ropsten': 'ropsten'
 };
 
 Dapple.init = function init(env) {
@@ -31,68 +32,35 @@ Dapple.init = function init(env) {
 const tokens = config.tokens;
 
 // http://numeraljs.com/ for formats
-const tokenSpecs = {
-  'OW-ETH': { precision: 18, format: '0,0.00[0000000000000000]' },
-  'W-ETH': { precision: 18, format: '0,0.00[0000000000000000]' },
-  DAI: { precision: 18, format: '0,0.00[0000000000000000]' },
-  SAI: { precision: 18, format: '0,0.00[0000000000000000]' },
-  MKR: { precision: 18, format: '0,0.00[0000000000000000]' },
-  DGD: { precision: 9, format: '0,0.00[0000000]' },
-  GNT: { precision: 18, format: '0,0.00[0000000000000000]' },
-  'W-GNT': { precision: 18, format: '0,0.00[0000000000000000]' },
-  REP: { precision: 18, format: '0,0.00[0000000000000000]' },
-  ICN: { precision: 18, format: '0,0.00[0000000000000000]' },
-  '1ST': { precision: 18, format: '0,0.00[0000000000000000]' },
-  SNGLS: { precision: 0, format: '0,0' },
-  VSL: { precision: 18, format: '0,0.00[0000000000000000]' },
-  PLU: { precision: 18, format: '0,0.00[0000000000000000]' },
-  MLN: { precision: 18, format: '0,0.00[0000000000000000]' },
-  RHOC: { precision: 8, format: '0,0.00[000000]' },
-  TIME: { precision: 8, format: '0,0.00[000000]' },
-  GUP: { precision: 3, format: '0,0.00[0]' },
-  BAT: { precision: 18, format: '0,0.00[0000000000000000]' },
-  NMR: { precision: 18, format: '0,0.00[0000000000000000]' },
+const tokenSpecs = {  
+  'W-ETH': { precision: 18, format: '0,0.00[0000000000000000]' },  
+  HC: { precision: 5, format: '0,0.00[000]' }  
 };
 
 Dapple.getQuoteTokens = () => ['W-ETH'];
 
-Dapple.getBaseTokens = () => ['W-GNT', 'DGD', 'REP', 'ICN', '1ST', 'SNGLS', 'VSL', 'PLU', 'MLN', 'RHOC', 'TIME', 'GUP', 'BAT', 'NMR'];
+Dapple.getBaseTokens = () => ['HC'];
 
-Dapple.getTokens = () => ['W-ETH', 'MKR', 'DGD', 'GNT', 'W-GNT', 'REP', 'ICN', '1ST', 'SNGLS', 'VSL', 'PLU', 'MLN', 'RHOC', 'TIME', 'GUP', 'BAT', 'NMR', 'SAI', 'DAI'];
+Dapple.getTokens = () => ['W-ETH', 'HC'];
 
 Dapple.generatePairs = () => {
   const TradingPairs = [
     {
-      base: 'MKR',
+      base: 'HC',
       quote: 'W-ETH',
       priority: 10,
-    },
-    {
-      base: 'W-ETH',
-      quote: 'DAI',
-      priority: 9,
-    },
-    {
-      base: 'MKR',
-      quote: 'DAI',
-      priority: 8,
-    },
-    {
-      base: 'SAI',
-      quote: 'DAI',
-      priority: 7,
-    },
+    }
   ];
 
-  Dapple.getBaseTokens().forEach((base) => {
-    Dapple.getQuoteTokens().forEach((quote) => {
-      TradingPairs.push({
-        base,
-        quote,
-        priority: 0,
-      });
-    });
-  });
+  // Dapple.getBaseTokens().forEach((base) => {
+  //   Dapple.getQuoteTokens().forEach((quote) => {
+  //     TradingPairs.push({
+  //       base,
+  //       quote,
+  //       priority: 0,
+  //     });
+  //   });
+  // });
   return TradingPairs;
 };
 

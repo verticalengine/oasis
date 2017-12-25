@@ -76,7 +76,7 @@ export function doHashChange() {
 
   if (location.hash.indexOf('#wrap') === -1 && location.hash.indexOf('#transfer') === -1) {
     if (location.hash.indexOf('#trade') === -1) {
-      location.hash = `#trade/${localStorage.getItem('baseCurrency') || 'MKR'}`
+      location.hash = `#trade/${localStorage.getItem('baseCurrency') || 'HC'}`
         + `/${localStorage.getItem('quoteCurrency') || 'W-ETH'}`;
     }
     const coins = location.hash.replace(/#trade\//g, '').split('/');
@@ -87,15 +87,15 @@ export function doHashChange() {
      * because those are the main currencies that MAKER is dealing with.
      */
     const base = coins[0];
-    baseCurrency = asToken(base, 'MKR');
+    baseCurrency = asToken(base, 'HC');
 
     const quote = coins[1];
     quoteCurrency = asToken(quote, 'W-ETH');
 
     if (baseCurrency === quoteCurrency) {
       quoteCurrency = 'W-ETH';
-      baseCurrency = 'MKR';
-    }
+      baseCurrency = 'HC';
+    }    
 
     // Looking for any existing pair that contains the currencies provided in the URL
     const pair = Dapple.generatePairs().find((currentPair) =>
